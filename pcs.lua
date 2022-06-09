@@ -7,7 +7,7 @@ local datetime = string.format("%d-%d-%d %d:%d:%d", year, month, day, hour, minu
 
 local http=require("socket.http")
 local json = require "json"
-local body = http.request("http://192.168.2.53:8080/PCS/survey/getSurveyDetails?username=admin&password=admiN123!&dn=0300")
+local body = http.request("http://0.0.0.0:8080/PCS/survey/getSurveyDetails?username=admin&password=admiN123!&dn=0300")
 local api = json.decode(body)
 
 
@@ -203,7 +203,7 @@ session:hangup();
     request_body = json.encode(request_body)
     
     local r, c, h, s = http.request {
-      url = 'http://192.168.2.53:8080/PCS/survey/updateFeedback',
+      url = 'http://0.0.0.0:8080/PCS/survey/updateFeedback',
       method = 'POST',
       headers = {
         ["Content-Type"] = "application/json",
